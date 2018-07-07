@@ -3,7 +3,7 @@
 			"pi": null,
 			"sif": null,
 			"mt": "f1-micro"
-		}
+		},
 	"builders": [
         {
             "type": "googlecompute",
