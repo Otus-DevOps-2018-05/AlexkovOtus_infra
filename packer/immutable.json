@@ -1,0 +1,54 @@
+{
+	"variables": {
+			"pi": null,
+			"sif": null,
+			"mt": "f1-micro"
+		},
+"builders": [
+        {
+            "type": "googlecompute",
+            "project_id": "{{user `pi`}}",
+            "image_name": "reddit-base-{{timestamp}}",
+            "image_family": "reddit-full",
+            "source_image_family": "{{user `sif`}}",
+            "zone": "europe-west1-b",
+            "ssh_username": "filip_filipov",
+            "machine_type": "{{user `mt`}}",
+            "image_description": "Image for HW5",
+            "disk_size": 13,
+            "disk_type": "pd-standard",
+            "network": "default",
+            "tags": "reddit"
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "scripts/install_ruby.sh",
+            "execute_command": "sudo {{.Path}}"
+        },
+        {
+            "type": "shell",
+            "script": "scripts/install_mongodb.sh",
+            "execute_command": "sudo {{.Path}}"
+        },
+        {
+            "type": "shell",
+            "script": "files/deploy.sh",
+            "execute_command": "sudo {{.Path}}"
+        },
+ 	   {
+		    "type": "shell",
+ 			"inline": ["mkdir -p ~/.config/systemd/user/"]
+    	},   
+        {
+			"type": "file",
+			"source": "files/myunit.service",
+			"destination": "~/.config/systemd/user/"
+        },
+ 	   {
+		    "type": "shell",
+ 			"inline": ["systemctl --user start myunit"]
+    	}   
+    ]
+}
