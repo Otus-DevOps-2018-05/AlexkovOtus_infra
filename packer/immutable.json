@@ -33,22 +33,14 @@
             "execute_command": "sudo {{.Path}}"
         },
         {
+			"type": "file",
+			"source": "files/myunit.service",
+			"destination": "/tmp/myunit.service"
+        },
+        {
             "type": "shell",
             "script": "files/deploy.sh",
             "execute_command": "sudo {{.Path}}"
-        },
- 	   {
-		    "type": "shell",
- 			"inline": ["mkdir -p ~/.config/systemd/user/"]
-    	},   
-        {
-			"type": "file",
-			"source": "files/myunit.service",
-			"destination": "~/.config/systemd/user/"
-        },
- 	   {
-		    "type": "shell",
- 			"inline": ["systemctl --user start myunit"]
-    	}   
+        }   
     ]
 }
