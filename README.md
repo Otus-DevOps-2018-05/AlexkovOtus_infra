@@ -1,4 +1,9 @@
+# Table of content
+- [Homework-6: Packer-1](#homework-6-packer-1)
+
 # AlexkovOtus_infra
+
+
 AlexkovOtus Infra repository
 ssh -i ~/.ssh/id_rsa -tA filip_filipov@35.195.121.132 "ssh 10.132.0.3"
 ssh -i ~/.ssh/id_rsa -tA filip_filipov@35.195.121.132 "ssh someinternalhost"
@@ -23,3 +28,9 @@ gcloud compute firewall-rules create default-puma-server \
 
 testapp_IP = 35.234.124.36
 testapp_port = 9292
+
+# Homework-6: Packer-1
+
+## 2.1 Что было сделано
+
+- Выполнено основное и дополнительное задание
