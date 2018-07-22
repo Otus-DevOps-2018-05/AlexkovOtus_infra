@@ -1,5 +1,5 @@
 # Table of content
-- [Homework-6: Packer-1](#homework-6-packer-1)
+- [Homework-5: Packer-1](#homework-6-packer-1)
 
 # AlexkovOtus_infra
 
@@ -29,7 +29,7 @@ gcloud compute firewall-rules create default-puma-server \
 testapp_IP = 35.234.124.36
 testapp_port = 9292
 
-# Homework-6: Packer-1
+# Homework-5: Packer-1
 
 ## 2.1 Что было сделано
 
